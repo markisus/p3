@@ -8,11 +8,10 @@ class MemoryMapTest(unittest.TestCase):
     def test_player_lookup(self):
         for i in range(4):
             locations = memory_map.generate_locations_for_player(i)
-            for location_name, location in locations:
-                lookup_result = self.lookup[location]
-                lookup_player, lookup_location_name = lookup_result
-                self.assertEqual(location_name, lookup_location_name)
-                self.assertEqual(i, lookup_player)
+            for variable, location in locations:
+                lookuped_player, lookuped_variable = self.lookup[location]
+                self.assertEqual(variable, lookuped_variable)
+                self.assertEqual(i, lookuped_player)
 
     def tearDown(self):
         pass
